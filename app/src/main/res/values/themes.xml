@@ -6,4 +6,7 @@
     </style>
 
     <style name="Theme.Nutrio" parent="Base.Theme.Nutrio" />
+    <style name="CircleImageView">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>
