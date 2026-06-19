@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         btnHome.setOnClickListener(v -> loadFragment(new HomeFragment(), R.id.btnNavHome));
 
         // NOTA: Sostituirai "new Fragment()" con i tuoi reali fragment appena li crei
-        btnRicette.setOnClickListener(v -> loadFragment(new Fragment(), R.id.btnNavRicette));
+        btnRicette.setOnClickListener(v -> loadFragment(new RicetteFragment(), R.id.btnNavRicette));
         btnCrea.setOnClickListener(v -> loadFragment(new Fragment(), R.id.btnNavCrea));
         btnCommunity.setOnClickListener(v -> loadFragment(new Fragment(), R.id.btnNavCommunity));
         btnImpostazioni.setOnClickListener(v -> loadFragment(new Fragment(), R.id.btnNavImpostazioni));

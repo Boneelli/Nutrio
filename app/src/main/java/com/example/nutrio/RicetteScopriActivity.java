@@ -21,7 +21,7 @@ public class RicetteScopriActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cerca_ricette);
+        setContentView(R.layout.fragment_ricette);
 
         // 1. Collega la RecyclerView dall'XML
         rvRecipesGrid = findViewById(R.id.rvRecipesGrid);
