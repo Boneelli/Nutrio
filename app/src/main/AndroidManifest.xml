@@ -21,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Activity per la pagina di dettaglio ricetta utilizzata dall'adapter -->
+        <activity
+            android:name=".control.DettaglioRicettaActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

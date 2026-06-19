@@ -99,27 +99,12 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:paddingHorizontal="16dp"
+        android:paddingBottom="96dp"
         android:clipToPadding="false"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
         tools:listitem="@layout/item_recipe_grid"
         app:layout_constraintTop_toBottomOf="@id/searchBarCard"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationContainer" /> <com.google.android.material.card.MaterialCardView
-    android:id="@+id/bottomNavigationContainer"
-    android:layout_width="0dp"
-    android:layout_height="64dp"
-    android:layout_marginHorizontal="24dp"
-    android:layout_marginBottom="16dp"
-    app:cardBackgroundColor="@android:color/white"
-    app:cardCornerRadius="32dp"
-    app:cardElevation="8dp"
-    app:strokeWidth="0dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent">
-
-    <include layout="@layout/layout_bottom_navigation" />
-
-</com.google.android.material.card.MaterialCardView>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
