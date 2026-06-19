@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.nutrio.control.RecipeGridAdapter;
 import com.example.nutrio.data.MockDataRepository;
 import com.example.nutrio.model.Ricetta;
 

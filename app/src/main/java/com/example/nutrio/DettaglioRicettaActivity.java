@@ -1,4 +1,4 @@
-package com.example.nutrio.control;
+package com.example.nutrio;
 
 import android.os.Bundle;
 import android.view.Gravity;
@@ -8,7 +8,6 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.nutrio.R;
 import com.example.nutrio.model.Ricetta;
 
 public class DettaglioRicettaActivity extends AppCompatActivity {
