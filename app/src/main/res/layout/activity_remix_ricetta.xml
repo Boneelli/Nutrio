@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:elevation="4dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarRemix"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@android:drawable/ic_menu_revert"
+            app:navigationIconTint="#708256">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REMIX RICETTA"
+                android:textColor="#708256"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- TITOLO CON BORDI FORTI -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TITOLO RICETTA"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="#000000"
+                app:boxStrokeWidth="2dp"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRemixTitolo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:inputType="textCapSentences"
+                    android:padding="16dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- INFO RAPIDE (TEMPO, COSTO, PORTATA) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TEMPO"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:textSize="12sp"/>
+                    <EditText
+                        android:id="@+id/etRemixTempo"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_rounded_top_panel"
+                        android:backgroundTint="#F0F0F0"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:inputType="text"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="COSTO"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:textSize="12sp"/>
+                    <EditText
+                        android:id="@+id/etRemixCosto"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_rounded_top_panel"
+                        android:backgroundTint="#F0F0F0"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:inputType="text"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- TAGS -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="TAG / REGIMI ALIMENTARI"
+                android:textColor="#000000"
+                android:textStyle="bold"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupTags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:chipSpacingHorizontal="8dp"/>
+
+            <Button
+                android:id="@+id/btnAddTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+ AGGIUNGI TAG"
+                android:textColor="#708256"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:textStyle="bold"/>
+
+            <!-- LISTA INGREDIENTI DINAMICA -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="INGREDIENTI"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <LinearLayout
+                android:id="@+id/containerIngredienti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
+                <!-- Verranno aggiunti qui i singoli item -->
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAddIngrediente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+ AGGIUNGI INGREDIENTE"
+                android:textColor="#708256"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="#708256"
+                app:strokeWidth="2dp"
+                android:layout_marginTop="8dp"
+                android:textStyle="bold"/>
+
+            <!-- PROCEDIMENTO DINAMICO -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="PROCEDIMENTO"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="16sp"/>
+
+            <LinearLayout
+                android:id="@+id/containerProcedimento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
+                <!-- Verranno aggiunti qui i singoli item -->
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAddPassaggio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+ AGGIUNGI PASSAGGIO"
+                android:textColor="#708256"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="#708256"
+                app:strokeWidth="2dp"
+                android:layout_marginTop="8dp"
+                android:textStyle="bold"/>
+
+            <!-- PULSANTE SALVA FINALE -->
+            <Button
+                android:id="@+id/btnSalvaRemix"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="40dp"
+                android:backgroundTint="#708256"
+                android:text="PUBBLICA RICETTA!"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

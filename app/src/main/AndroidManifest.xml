@@ -25,6 +25,15 @@
         <activity
             android:name=".DettaglioRicettaActivity"
             android:exported="false" />
+        <activity
+            android:name=".CuciniamoInsiemeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RemixRicettaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreaRicettaActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

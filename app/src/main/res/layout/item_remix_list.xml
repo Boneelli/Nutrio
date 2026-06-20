@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="8dp">
+
+    <EditText
+        android:id="@+id/etItemText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/bg_rounded_top_panel"
+        android:backgroundTint="#F0F0F0"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:inputType="textCapSentences"
+        android:maxLines="3"/>
+
+    <ImageButton
+        android:id="@+id/btnRemoveItem"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@android:drawable/ic_menu_delete"
+        android:contentDescription="Rimuovi"
+        app:tint="#FF0000"
+        xmlns:app="http://schemas.android.com/apk/res-auto" />
+
+</LinearLayout>

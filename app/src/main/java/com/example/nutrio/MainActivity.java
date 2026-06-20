@@ -1,5 +1,6 @@
 package com.example.nutrio;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -41,7 +42,12 @@ public class MainActivity extends AppCompatActivity {
 
         // NOTA: Sostituirai "new Fragment()" con i tuoi reali fragment appena li crei
         btnRicette.setOnClickListener(v -> loadFragment(new RicetteFragment(), R.id.btnNavRicette));
-        btnCrea.setOnClickListener(v -> loadFragment(new Fragment(), R.id.btnNavCrea));
+        
+        btnCrea.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CreaRicettaActivity.class);
+            startActivity(intent);
+        });
+
         btnCommunity.setOnClickListener(v -> loadFragment(new Fragment(), R.id.btnNavCommunity));
         btnImpostazioni.setOnClickListener(v -> loadFragment(new Fragment(), R.id.btnNavImpostazioni));
     }

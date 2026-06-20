@@ -1,5 +1,6 @@
 package com.example.nutrio;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.ImageView;
@@ -24,6 +25,19 @@ public class DettaglioRicettaActivity extends AppCompatActivity {
         Ricetta ricetta = (Ricetta) getIntent().getSerializableExtra("RICETTA_SELEZIONATA");
 
         if (ricetta != null) {
+            // Setup pulsanti
+            findViewById(R.id.btnCuciniamo).setOnClickListener(v -> {
+                Intent intent = new Intent(this, CuciniamoInsiemeActivity.class);
+                intent.putExtra("RICETTA_SELEZIONATA", ricetta);
+                startActivity(intent);
+            });
+
+            findViewById(R.id.btnRemix).setOnClickListener(v -> {
+                Intent intent = new Intent(this, RemixRicettaActivity.class);
+                intent.putExtra("RICETTA_SELEZIONATA", ricetta);
+                startActivity(intent);
+            });
+
             TextView tvTitolo = findViewById(R.id.tvDettaglioTitolo);
             ImageView ivFoto = findViewById(R.id.ivDettaglioFoto);
             RatingBar ratingBar = findViewById(R.id.ratingBar);
