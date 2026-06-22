@@ -4,13 +4,17 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.nutrio.data.MockDataRepository;
 import com.example.nutrio.model.Ricetta;
 
 import java.util.List;
+import android.util.Log;
 
-public class RicetteScopriActivity extends AppCompatActivity {
+public class RicetteScopriActivity extends AppCompatActivity
+        implements FiltriBottomSheetFragment.OnFiltriApplyListener {
 
     private RecyclerView rvRecipesGrid;
     private RecipeGridAdapter adapter;
@@ -33,5 +37,28 @@ public class RicetteScopriActivity extends AppCompatActivity {
         // 4. Inizializza l'Adapter passandogli i dati e assegnalo alla RecyclerView
         adapter = new RecipeGridAdapter(this, elencoRicette);
         rvRecipesGrid.setAdapter(adapter);
+
+        // Apri i filtri al click sull'icona nella search bar
+        ImageView ivFilter = findViewById(R.id.ivFilterIcon);
+        if (ivFilter != null) {
+            ivFilter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FiltriBottomSheetFragment fragment = new FiltriBottomSheetFragment();
+                    fragment.show(getSupportFragmentManager(), "filtri_ricette");
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onApplyFilters(int costo, int difficolta, int tempoMax, String categoria, List<String> preferenze) {
+        // TODO: Filtrare elencoRicette in base ai parametri e aggiornare adapter
+        Log.d("Filtri", "Costo: " + costo + ", Difficoltà: " + difficolta +
+              ", Tempo: " + tempoMax + ", Categoria: " + categoria + ", Preferenze: " + preferenze);
+
+        // Esempio di filtraggio (da implementare secondo la tua logica):
+        // List<Ricetta> filtered = filterRicette(elencoRicette, costo, difficolta, tempoMax, categoria, preferenze);
+        // adapter.updateData(filtered);
     }
 }
