@@ -34,6 +34,10 @@
         <activity
             android:name=".CreaRicettaActivity"
             android:exported="false" />
+
+        <activity android:name=".CreaCommunityActivity" />
+        <activity android:name=".ChatCommunityActivity" />
+        <activity android:name=".DettaglioCommunityActivity" />
     </application>
 
 </manifest>

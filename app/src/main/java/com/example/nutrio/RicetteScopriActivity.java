@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.nutrio.data.MockDataRepository;
+import com.example.nutrio.model.FiltriBottomSheetFragment;
 import com.example.nutrio.model.Ricetta;
 
 import java.util.List;

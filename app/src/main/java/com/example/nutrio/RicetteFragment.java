@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 
 import com.example.nutrio.data.MockDataRepository;
+import com.example.nutrio.model.FiltriBottomSheetFragment;
 import com.example.nutrio.model.Ricetta;
 
 import java.util.List;

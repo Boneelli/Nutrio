@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        btnCommunity.setOnClickListener(v -> loadFragment(new Fragment(), R.id.btnNavCommunity));
+        btnCommunity.setOnClickListener(v -> loadFragment(new CommunityFragment(), R.id.btnNavCommunity));
         btnImpostazioni.setOnClickListener(v -> loadFragment(new Fragment(), R.id.btnNavImpostazioni));
     }
 
