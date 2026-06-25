@@ -36,7 +36,7 @@
             android:layout_height="36dp"
             android:layout_marginStart="16dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ricette"
+            android:src="@drawable/cous"
             app:shapeAppearanceOverlay="@style/CircleImageView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnBackFromChat"

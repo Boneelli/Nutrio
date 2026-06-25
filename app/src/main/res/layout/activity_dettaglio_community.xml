@@ -20,13 +20,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:tint="@android:color/white" />
 
+    <!-- Messaggio di successo centrato (mostrato temporaneamente dopo la creazione) -->
+    <TextView
+        android:id="@+id/tvCreatedSuccessOverlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#708256"
+        android:text="Community creata con successo"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:visibility="gone"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivInfoCommAvatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="12dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/ricette"
+        android:src="@drawable/cous"
         app:shapeAppearanceOverlay="@style/CircleImageView"
         app:layout_constraintTop_toBottomOf="@id/btnBackInfoComm"
         app:layout_constraintStart_toStartOf="parent"

@@ -11,6 +11,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
 import com.example.nutrio.data.MockDataRepository;
 import com.example.nutrio.model.FiltriBottomSheetFragment;
@@ -43,6 +48,10 @@ public class RicetteFragment extends Fragment implements FiltriBottomSheetFragme
         ImageView ivFilterIcon = view.findViewById(R.id.ivFilterIcon);
         if (ivFilterIcon != null) {
             ivFilterIcon.setOnClickListener(v -> {
+                // Rimuove i chip visivi quando si aprono i filtri
+                ChipGroup cg = view.findViewById(R.id.cgSelectedFilters);
+                if (cg != null) cg.removeAllViews();
+
                 FiltriBottomSheetFragment filtriFragment = new FiltriBottomSheetFragment();
                 filtriFragment.show(getChildFragmentManager(), "filtri_ricette");
             });
@@ -53,12 +62,39 @@ public class RicetteFragment extends Fragment implements FiltriBottomSheetFragme
 
     @Override
     public void onApplyFilters(int costo, int difficolta, int tempoMax, String categoria, List<String> preferenze) {
-        // TODO: Filtrare elencoRicette in base ai parametri e aggiornare adapter
-        Log.d("Filtri", "Costo: " + costo + ", Difficoltà: " + difficolta +
-              ", Tempo: " + tempoMax + ", Categoria: " + categoria + ", Preferenze: " + preferenze);
-        
-        // Esempio di filtraggio (da implementare secondo la tua logica):
-        // List<Ricetta> filtered = filterRicette(elencoRicette, costo, difficolta, tempoMax, categoria, preferenze);
-        // adapter.updateData(filtered);
+        // Mostriamo visivamente i filtri selezionati sopra la griglia (solo UI)
+        View root = getView();
+        if (root == null) return;
+
+        ChipGroup cg = root.findViewById(R.id.cgSelectedFilters);
+        if (cg == null) return;
+
+        cg.removeAllViews();
+
+        if (categoria != null && !categoria.isEmpty()) {
+            Chip chip = new Chip(getContext());
+            chip.setText(categoria);
+            chip.setClickable(false);
+            chip.setCloseIconVisible(false);
+            chip.setChipBackgroundColor(ColorStateList.valueOf(Color.parseColor("#708256")));
+            chip.setTextColor(Color.WHITE);
+            cg.addView(chip);
+        }
+
+        if (preferenze != null) {
+            for (String p : preferenze) {
+                Chip chip = new Chip(getContext());
+                chip.setText(p);
+                chip.setClickable(false);
+                chip.setCloseIconVisible(false);
+                // preferenze chips: sfondo verde e testo bianco per coerenza
+                chip.setChipBackgroundColor(ColorStateList.valueOf(Color.parseColor("#708256")));
+                chip.setTextColor(Color.WHITE);
+                cg.addView(chip);
+            }
+        }
+
+        // Log per debug
+        Log.d("Filtri", "Applicati (UI): Categoria=" + categoria + ", Preferenze=" + preferenze);
     }
 }

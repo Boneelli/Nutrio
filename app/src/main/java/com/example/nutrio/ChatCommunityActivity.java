@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
+import android.view.View;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +27,17 @@ public class ChatCommunityActivity extends AppCompatActivity {
         String nomeCommunity = getIntent().getStringExtra("NOME_COMMUNITY");
         TextView tvTitle = findViewById(R.id.tvChatHeaderTitle);
         if (tvTitle != null && nomeCommunity != null) tvTitle.setText(nomeCommunity);
+
+        // Rendiamo cliccabile l'avatar per aprire la pagina della community
+        ImageView ivAvatar = findViewById(R.id.ivChatHeaderAvatar);
+        if (ivAvatar != null) {
+            ivAvatar.setOnClickListener(v -> {
+                String nome = (tvTitle != null) ? tvTitle.getText().toString() : "Community";
+                android.content.Intent intent = new android.content.Intent(ChatCommunityActivity.this, DettaglioCommunityActivity.class);
+                intent.putExtra("NOME_COMMUNITY", nome);
+                startActivity(intent);
+            });
+        }
 
         // 2. Configura la lista (RecyclerView)
         RecyclerView rvChat = findViewById(R.id.rvChatCommunityMessages);
