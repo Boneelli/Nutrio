@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import com.google.android.material.chip.ChipGroup;
 
 import com.example.nutrio.data.MockDataRepository;
 import com.example.nutrio.model.FiltriBottomSheetFragment;
@@ -45,6 +46,10 @@ public class RicetteScopriActivity extends AppCompatActivity
             ivFilter.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    // Rimuove i chip visivi quando si aprono i filtri
+                    ChipGroup cg = findViewById(R.id.cgSelectedFilters);
+                    if (cg != null) cg.removeAllViews();
+
                     FiltriBottomSheetFragment fragment = new FiltriBottomSheetFragment();
                     fragment.show(getSupportFragmentManager(), "filtri_ricette");
                 }

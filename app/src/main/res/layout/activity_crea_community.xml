@@ -26,7 +26,7 @@
         android:layout_marginTop="24dp"
         android:background="#E0E0E0"
         android:padding="30dp"
-        android:src="@android:drawable/ic_menu_camera"
+        android:src="@drawable/cous"
         app:shapeAppearanceOverlay="@style/CircleImageView"
         app:layout_constraintTop_toBottomOf="@id/btnBackCreaComm"
         app:layout_constraintStart_toStartOf="parent"
