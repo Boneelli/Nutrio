@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/btnTag"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/tag_selector_bg"
+    android:textColor="#000000"
+    android:textSize="12sp"
+    android:textStyle="bold"
+    android:textAlignment="center"
+    android:gravity="center"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp"
+    android:elevation="2dp" />
+
+

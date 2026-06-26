@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.google.android.material.chip.ChipGroup;
 
 import com.example.nutrio.data.MockDataRepository;
-import com.example.nutrio.model.FiltriBottomSheetFragment;
+import com.example.nutrio.FiltriBottomSheetFragment;
 import com.example.nutrio.model.Ricetta;
 
 import java.util.List;

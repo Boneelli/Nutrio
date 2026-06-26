@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -16,7 +16,7 @@ import com.google.android.material.chip.ChipGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CreaRicettaActivity extends AppCompatActivity {
+public class CreaRicettaActivity extends AppCompatActivity implements TagSelectorBottomSheetFragment.OnTagsApplyListener {
 
     private ChipGroup chipGroupTags;
     private LinearLayout containerIngredienti;
@@ -82,7 +82,7 @@ public class CreaRicettaActivity extends AppCompatActivity {
         Chip chip = new Chip(this);
         chip.setText(tagText);
         chip.setCloseIconVisible(true);
-        chip.setTextColor(getResources().getColor(android.R.color.black));
+        chip.setTextColor(ContextCompat.getColor(this, android.R.color.black));
         chip.setChipStrokeColorResource(android.R.color.black);
         chip.setChipStrokeWidth(2f);
         chip.setChipBackgroundColorResource(android.R.color.white);
@@ -95,13 +95,15 @@ public class CreaRicettaActivity extends AppCompatActivity {
     }
 
     private void showAddTagDialog() {
-        EditText etNewTag = new EditText(this);
-        new AlertDialog.Builder(this)
-                .setTitle("AGGIUNGI TAG")
-                .setView(etNewTag)
-                .setPositiveButton("OK", (dialog, which) -> addTagToGroup(etNewTag.getText().toString().trim()))
-                .setNegativeButton("ANNULLA", null)
-                .show();
+        TagSelectorBottomSheetFragment fragment = new TagSelectorBottomSheetFragment();
+        fragment.show(getSupportFragmentManager(), "tag_selector");
+    }
+
+    @Override
+    public void onApplyTags(List<String> selectedTags) {
+        for (String tag : selectedTags) {
+            addTagToGroup(tag);
+        }
     }
 
     private boolean validaCampi() {
